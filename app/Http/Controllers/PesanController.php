@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class pesan extends Controller
+class PesanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class pesan extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('user')->get();
+        return view('index', compact('data'));
     }
 
     /**
@@ -32,9 +34,12 @@ class pesan extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        DB::table('user')->insert([
+            'isi' => $req->message
+        ]);
+        return redirect('/');
     }
 
     /**

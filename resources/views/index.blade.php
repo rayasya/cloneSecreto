@@ -20,8 +20,9 @@
             SECREBEW
         </div>
         <div class="card-body">
-            <form action="" method="POST">
+            <form action="/secrebew" method="POST">
                 @csrf
+                @method('POST')
                 <h5 class="card-title text-center">Send secret message to ray</h5>
                 <br>
                 <p class="card-text">ray will never know who sent this message</p>
@@ -33,6 +34,27 @@
                     <button type="submit" class="col-md-12 btn btn-primary">Submit</button>
                 </div>
             </form>
+        </div>
+    </div>
+    <br>
+    <div class="card col-md-6 mx-auto mt-3">
+        <div class="card-header">Timeline of ray</div>
+        <div class="card-body bg-light">
+
+            @foreach ($data as $item)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="card-title">{{ $item->isi }}</div>
+                        <form action="" method="POST">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Write a Comment">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 
