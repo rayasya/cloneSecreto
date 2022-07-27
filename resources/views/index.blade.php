@@ -28,7 +28,7 @@
                 <p class="card-text">ray will never know who sent this message</p>
                 <div class="mb-3">
                     <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="6"
-                        placeholder="Send Secret Message"></textarea>
+                        placeholder="Send Secret Message" required></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="col-md-12 btn btn-primary">Submit</button>
@@ -44,8 +44,8 @@
             @foreach ($data as $item)
                 <div class="card mb-3">
                     <div class="card-body">
-                        <div class="card-title">{{ $item->isi }}</div>
-                        <form action="" method="POST">
+                        <div class="card-title" id="{{ $item->id }}">{{ $item->pesan }}</div>
+                        <form action="/secrebew/balasPesan" method="POST">
                             @csrf
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Write a Comment">

@@ -14,7 +14,7 @@ class PesanController extends Controller
      */
     public function index()
     {
-        $data = DB::table('user')->get();
+        $data = DB::table('messages')->get();
         return view('index', compact('data'));
     }
 
@@ -36,10 +36,10 @@ class PesanController extends Controller
      */
     public function store(Request $req)
     {
-        DB::table('user')->insert([
-            'isi' => $req->message
+        DB::table('messages')->insert([
+            'pesan' => $req->message
         ]);
-        return redirect('/');
+        return redirect('/secrebew');
     }
 
     /**

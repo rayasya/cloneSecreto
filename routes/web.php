@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesanController;
+use App\Http\Controllers\BalasPesanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use App\Http\Controllers\PesanController;
 |
 */
 Route::get('/', function () {
-    return redirect('/secrebew');
+    return redirect('/registration');
 });
+Route::view('/registration', 'registration');
 Route::resource('/secrebew', PesanController::class);
+// Route::post('/secrebew/balasPesan', BalasPesanController::class, 'index');
