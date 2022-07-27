@@ -13,9 +13,11 @@ class PesanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $dataKomen = DB::table('messages')->join('comments','comments.id_users', '=', 'messages.id')->get();
         $data = DB::table('messages')->get();
-        return view('index', compact('data'));
+        // dd($dataKomen);
+        return view('index', compact('data', 'dataKomen'));
     }
 
     /**

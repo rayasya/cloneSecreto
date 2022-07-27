@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 Route::view('/registration', 'registration');
 Route::resource('/secrebew', PesanController::class);
-// Route::post('/secrebew/balasPesan', BalasPesanController::class, 'index');
+Route::post('/secrebew/balas{id}', [BalasPesanController::class, 'index']);
