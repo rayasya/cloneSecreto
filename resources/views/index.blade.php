@@ -44,7 +44,7 @@
             @foreach ($dataKomen as $item)
                 <div class="card mb-3">
                     <div class="card-body">
-                        <div class="card-title">{{ $item->pesan }}</div>
+                        <div class="card-title" id="{{ $item->id }}">{{ $item->pesan }}</div>
                         <form action="/secrebew/balas{{ $item->id }}" method="POST">
                             @csrf
                             <div class="input-group">
@@ -53,7 +53,25 @@
                             </div>
                         </form>
                         <div class="m-2 p-2 bg-light rounded">
-                            <p class="card-text">{{ $dk->komen }}</p>
+                            <p class="card-text">{{ $item->komen }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($data as $item)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="card-title" id="{{ $item->id }}">{{ $item->pesan }}</div>
+                        <form action="/secrebew/balas{{ $item->id }}" method="POST">
+                            @csrf
+                            <div class="input-group">
+                                <input name="balas" type="text" class="form-control" placeholder="Write a Comment" required>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                        <div class="m-2 p-2 bg-light rounded">
+                            <p class="card-text"></p>
                         </div>
                     </div>
                 </div>

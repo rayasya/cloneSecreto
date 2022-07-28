@@ -14,9 +14,15 @@ class PesanController extends Controller
      */
     public function index()
     {   
-        $dataKomen = DB::table('messages')->join('comments','comments.id_users', '=', 'messages.id')->get();
+        $dataKomen = DB::table('messages')
+                    ->join('comments','comments.id_users', '=', 'messages.id')
+                    ->select('messages.id', 'messages.pesan', 'comments.komen')->get();
+        // $dataKirim = DB::table('comments')->where('id_users', '=', )
         $data = DB::table('messages')->get();
-        // dd($dataKomen);
+        // foreach ($dataKomen as $d) {
+        //     dd($d);
+        // }
+        
         return view('index', compact('data', 'dataKomen'));
     }
 
