@@ -42,7 +42,7 @@
         <div class="card-body bg-light">
 
 
-            
+
             @foreach ($dataKomen as $item)
                 <div class="card mb-3">
                     <div class="card-body">
@@ -61,7 +61,7 @@
                 </div>
             @endforeach
 
-            @foreach ($dataKirim as $item)
+            @foreach ($dataKomenNull as $item)
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="card-title" id="{{ $item->id }}">{{ $item->pesan }}</div>
@@ -72,9 +72,6 @@
                                 <button class="btn btn-primary" type="submit">Submit</button>
                             </div>
                         </form>
-                        <div class="m-2 p-2 bg-light rounded">
-                            <p class="card-text"></p>
-                        </div>
                     </div>
                 </div>
             @endforeach
