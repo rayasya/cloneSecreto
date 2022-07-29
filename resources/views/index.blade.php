@@ -41,6 +41,8 @@
         <div class="card-header">Timeline of ray</div>
         <div class="card-body bg-light">
 
+
+            
             @foreach ($dataKomen as $item)
                 <div class="card mb-3">
                     <div class="card-body">
@@ -59,7 +61,7 @@
                 </div>
             @endforeach
 
-            @foreach ($data as $item)
+            @foreach ($dataKirim as $item)
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="card-title" id="{{ $item->id }}">{{ $item->pesan }}</div>

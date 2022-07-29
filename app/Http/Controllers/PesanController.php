@@ -18,12 +18,14 @@ class PesanController extends Controller
                     ->join('comments','comments.id_users', '=', 'messages.id')
                     ->select('messages.id', 'messages.pesan', 'comments.komen')->get();
         // $dataKirim = DB::table('comments')->where('id_users', '=', )
-        $data = DB::table('messages')->get();
+        $dataKirim = DB::table('messages')
+                    ->leftjoin('comments','comments.id_users', '=', 'messages.id')
+                    ->select('messages.id', 'messages.pesan', 'comments.komen')->where('komen', '=', null)->get();
         // foreach ($dataKomen as $d) {
         //     dd($d);
         // }
-        
-        return view('index', compact('data', 'dataKomen'));
+        // dd($dataKirim);
+        return view('index', compact('dataKomen', 'dataKirim'));
     }
 
     /**
